@@ -21,7 +21,7 @@ body {
     align-items: center;
     width: 100%;
     max-width: 1200px;
-    position: relative;
+    flex-wrap: wrap; /* Allows wrapping on small screens */
 }
 
 .logo {
@@ -32,13 +32,13 @@ body {
 }
 
 .logo img {
-    max-width: 150px;
+    max-width: 200px;
     height: auto;
 }
 
 h1 {
     font-family: 'Barriecito', sans-serif;
-    font-size: 5rem;
+    font-size: clamp(2.5rem, 5vw, 5rem); /* Flexible font size */
     font-weight: bold;
     margin: 0;
     line-height: 1.2;
@@ -46,14 +46,14 @@ h1 {
 }
 
 p {
-    font-size: 2rem;
+    font-size: clamp(1.2rem, 2.5vw, 2rem); /* Flexible font size */
     margin: 1rem 0;
     color: #555;
     font-weight: 300;
 }
 
 .highlight {
-    font-size: 2.8rem;
+    font-size: clamp(1.5rem, 3vw, 2.8rem); /* Flexible font size */
     font-weight: 600;
     color: #222;
 }
@@ -89,7 +89,8 @@ p {
 
 .text-content {
     max-width: 600px;
-    text-align: justify;
+    text-align: center; /* Better alignment for mobile */
+    margin: 0 auto; /* Centering */
 }
 
 .fade-in {
@@ -103,7 +104,7 @@ p {
 
 .footer {
     position: absolute;
-    bottom: 5rem;
+    bottom: 1rem;
     left: 50%;
     transform: translateX(-50%);
     font-size: 1.2rem;
@@ -118,12 +119,8 @@ p {
 }
 
 @keyframes heartBeat {
-    0%, 100% {
-        transform: scale(1);
-    }
-    50% {
-        transform: scale(1.2);
-    }
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
 }
 
 @media (max-width: 768px) {
@@ -147,7 +144,7 @@ p {
         margin-top: 2rem;
     }
     h1 {
-        font-size: 3.5rem;
+        font-size: 3rem;
     }
     p {
         font-size: 1.5rem;
@@ -156,7 +153,8 @@ p {
         font-size: 2rem;
     }
     .illustration img {
-        width: 250px;
+        width: 80%; /* Fit the screen better */
+        max-width: 300px;
     }
     .footer {
         bottom: 0.5rem;
